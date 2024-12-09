@@ -1620,4 +1620,14 @@ public abstract class BaseClientWrapper extends Applet implements Client {
     public WorldView getTopLevelWorldView() {
         return wrappedClient.getTopLevelWorldView();
     }
+
+    @Override
+    public int getDraw2DMask() {
+        return wrappedClient.getDraw2DMask();
+    }
+
+    @Override
+    public void setDraw2DMask(int i) {
+        wrappedClient.setDraw2DMask(i);
+    }
 }
