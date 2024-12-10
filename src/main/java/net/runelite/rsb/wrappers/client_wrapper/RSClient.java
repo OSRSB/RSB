@@ -281,6 +281,16 @@ public class RSClient extends BaseClientWrapper {
         return convertResult(super.getTopLevelWorldView());
     }
 
+    @Override
+    public int getDraw2DMask() {
+        return super.getDraw2DMask();
+    }
+
+    @Override
+    public void setDraw2DMask(int i) {
+        super.setDraw2DMask(i);
+    }
+
     @Nullable
     @Override
     public LocalPoint getLocalDestinationLocation() { // tested, causes freezes without runOnClientThread
@@ -599,6 +609,11 @@ public class RSClient extends BaseClientWrapper {
         @Override
         public void clearActions() {
             super.clearActions();
+        }
+
+        @Override
+        public int[] getVarTransmitTrigger() {
+            return super.getVarTransmitTrigger();
         }
     }
 }

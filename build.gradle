@@ -15,7 +15,7 @@ repositories {
     }
 }
 
-def lastSupportedVersion = "1.10.36"
+def lastSupportedVersion = "1.10.46.1"
 def runeLiteVersion = getRuneLiteVersion()
 def supportedCheck = false
 if (supportedCheck) {
@@ -26,7 +26,7 @@ if (supportedCheck) {
 }
 
 static def getRuneLiteVersion() {
-    URL url = new URL("http://repo.runelite.net/net/runelite/client/maven-metadata.xml")
+    URL url = new URL("https://repo.runelite.net/net/runelite/client/maven-metadata.xml")
     URLConnection urlConnection = url.openConnection()
     BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(
             urlConnection.getInputStream()))
