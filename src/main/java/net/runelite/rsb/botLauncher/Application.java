@@ -26,11 +26,10 @@ public class Application {
 	 * @throws Throwable	Any error that might be thrown
 	 */
 	public static void main(final String[] args) throws Throwable {
-		JnREPL.startRepl();
 		preParser = new ArgumentPreParser(args);
 		if (preParser.contains("--bot-runelite")) {
 			addBot(preParser.contains("--headless"));
-			checkForCacheAndLoad();
+			// checkForCacheAndLoad();
 			CLIHandler.handleCLI();
 		} else {
 			net.runelite.client.RuneLite.main(args);
