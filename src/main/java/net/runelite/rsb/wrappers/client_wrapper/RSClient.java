@@ -614,7 +614,7 @@ public class RSClient extends BaseClientWrapper {
 
     @Override
     public Model applyTransformations(Model m, Animation animA, int frameA, Animation animB, int frameB) {
-        super.applyTransformations(m, animA, frameA, animB, frameB);
+        return super.applyTransformations(m, animA, frameA, animB, frameB);
     }
 
     @Override
@@ -696,6 +696,6 @@ public class RSClient extends BaseClientWrapper {
 
     public boolean isOnLoginScreen() { return isOnLoginScreen(); }
 
-    public void pf() { pf(); }
-
-   }
+public boolean pf() { return pf(); }
+public void pg(int a) { pg(a); }
+}
