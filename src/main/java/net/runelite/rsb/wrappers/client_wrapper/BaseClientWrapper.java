@@ -1658,10 +1658,4 @@ public abstract class BaseClientWrapper extends Applet implements Client, OAuthA
     @Override
     public void registerRuneLiteObject(RuneLiteObjectController controller) {wrappedClient.registerRuneLiteObject(controller);}
     
-
-//    void px(OtlTokenRequester requester) { wrappedClient.px(requester);}
-
-//    OtlTokenResponse qx() {wrappedClient.qx();}
-
-
 }
