@@ -5,6 +5,7 @@
   :description "A revised bot client on RuneLite (for now)"
   :dependencies [[org.clojure/clojure "1.10.3"]
                  [clj-http "3.12.3"]
+                 [org.clojure/core.async "1.7.701"]
                  [com.cemerick/pomegranate "1.1.0"]
                  [net.runelite/client "1.10.49"]
                  [net.runelite/cache "1.10.49"]
