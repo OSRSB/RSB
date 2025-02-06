@@ -3,6 +3,7 @@
             [clojure.java.io :as io] [clojure.string :as str] 
             [cemerick.pomegranate :as pomegranate]
             [cemerick.pomegranate.aether :as aether]
+            [net.runelite.rsb.launcher.application :as app]
             )
   (:import [net.runelite.rsb.botLauncher Application])
   (:gen-class))
@@ -33,10 +34,8 @@
   (add-dependency "net.runelite" "cache" (get-runelite-version))
   (add-dependency "org.projectlombok" "lombok" "1.18.24")
   (add-dependency "javassist" "javassist" "3.12.1.GA")
-  (add-dependency "net.sf.jopt-simple" "jopt-simple" "5.0.4")
-  )
+  (add-dependency "net.sf.jopt-simple" "jopt-simple" "5.0.4"))
 
-(defn -main [& args] 
-  #_(handle-deps) ;; This will be used when we convert ALL code from Java and can do runtime compilation only
-  (Application/main (into-array String args))
-  )
+(defn -main [& args]
+  (handle-deps) ;; This will be used when we convert ALL code from Java and can do runtime compilation only
+  (app/start (set args)))
