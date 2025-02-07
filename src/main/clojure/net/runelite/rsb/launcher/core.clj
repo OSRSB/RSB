@@ -38,4 +38,5 @@
 
 (defn -main [& args]
   (handle-deps) ;; This will be used when we convert ALL code from Java and can do runtime compilation only
-  (app/start (set args)))
+  (app/start (set args))
+  #_(Application/main (into-array String args)))
