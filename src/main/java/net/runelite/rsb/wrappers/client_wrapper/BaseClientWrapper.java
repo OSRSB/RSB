@@ -1,8 +1,6 @@
 package net.runelite.rsb.wrappers.client_wrapper;
 
 import net.runelite.api.*;
-import net.runelite.api.Menu;
-import net.runelite.api.Point;
 import net.runelite.api.annotations.Varp;
 import net.runelite.api.clan.ClanChannel;
 import net.runelite.api.clan.ClanSettings;
@@ -17,21 +15,31 @@ import net.runelite.api.widgets.WidgetInfo;
 import net.runelite.api.widgets.WidgetModalMode;
 import net.runelite.api.worldmap.MapElementConfig;
 import net.runelite.api.worldmap.WorldMap;
+import net.runelite.api.RuneLiteObjectController;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.applet.Applet;
 import java.awt.*;
+import java.lang.reflect.Method;
 import java.util.EnumSet;
 import java.util.List;
 import java.util.Map;
 import java.util.function.IntPredicate;
+import com.jagex.oldscape.pub.OAuthApi;
+import com.jagex.oldscape.pub.OtlTokenRequester;
+import com.jagex.oldscape.pub.OtlTokenResponse;
+
+
+
+
 
 /*
 Base class for wrapping runelite Client, along with some weird Applet shenanigans.
 */
 @SuppressWarnings("removal")
-public abstract class BaseClientWrapper extends Applet implements Client {
+public abstract class BaseClientWrapper extends Applet implements Client, OAuthApi
+{
     public final Client wrappedClient;
 
     public BaseClientWrapper(Client client) {
@@ -263,7 +271,7 @@ public abstract class BaseClientWrapper extends Applet implements Client {
     }
 
     @Override
-    public Point getMouseCanvasPosition() {
+    public net.runelite.api.Point getMouseCanvasPosition() {
         return wrappedClient.getMouseCanvasPosition();
     }
 
@@ -1587,7 +1595,7 @@ public abstract class BaseClientWrapper extends Applet implements Client {
     }
 
     @Override
-    public Menu getMenu() {
+    public net.runelite.api.Menu getMenu() {
         return wrappedClient.getMenu();
     }
 
@@ -1620,4 +1628,34 @@ public abstract class BaseClientWrapper extends Applet implements Client {
     public WorldView getTopLevelWorldView() {
         return wrappedClient.getTopLevelWorldView();
     }
+
+    @Override
+    public Model applyTransformations(Model m, Animation animA, int frameA, Animation animB, int frameB) {
+        return wrappedClient.applyTransformations(m, animA, frameA, animB, frameB);
+    }
+
+    @Override
+    public void setDraw2DMask(int mask) {
+        wrappedClient.setDraw2DMask(mask);
+    }
+
+    @Override
+    public int getDraw2DMask() {
+        return wrappedClient.getDraw2DMask();
+    }
+
+    @Override
+    public List<MidiRequest> getActiveMidiRequests() {
+        return wrappedClient.getActiveMidiRequests();
+    }
+
+    @Override
+    public boolean isRuneLiteObjectRegistered(RuneLiteObjectController controller) {return wrappedClient.isRuneLiteObjectRegistered(controller);}
+
+    @Override
+    public void removeRuneLiteObject(RuneLiteObjectController controller) {wrappedClient.removeRuneLiteObject(controller);}
+    
+    @Override
+    public void registerRuneLiteObject(RuneLiteObjectController controller) {wrappedClient.registerRuneLiteObject(controller);}
+    
 }

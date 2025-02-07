@@ -2,3 +2,9 @@ build/
 .gradle/
 OsrsBot.jar
 .idea/
+
+target/*
+.clj-kondo/*
+.lsp/*
+
+output/*
