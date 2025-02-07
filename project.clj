@@ -9,15 +9,16 @@
                  [com.cemerick/pomegranate "1.1.0"]
                  [net.runelite/client "1.10.49"]
                  [net.runelite/cache "1.10.49"]
-                 [org.projectlombok/lombok "1.18.32"]
-                 [javassist/javassist "3.12.1.GA"]
-                 [net.sf.jopt-simple/jopt-simple "5.0.4"]
-                 [com.github.joonasvali.naturalmouse/naturalmouse "2.0.3"]
-                 [com.github.OSRSB/OSRSBPlugin "main-SNAPSHOT"]]
+                 #_[org.projectlombok/lombok "1.18.32"]
+                 #_[javassist/javassist "3.12.1.GA"]
+                 #_[net.sf.jopt-simple/jopt-simple "5.0.4"]
+                 #_[com.github.joonasvali.naturalmouse/naturalmouse "2.0.3"]
+                 #_[com.github.OSRSB/OSRSBPlugin "main-SNAPSHOT"]]
   :repositories {"runelite" "https://repo.runelite.net"
                  "jitpack" "https://jitpack.io"
                  "central" "https://repo1.maven.org/maven2/"}
+  :jvm-opts ["--add-opens=java.base/java.lang=ALL-UNNAMED"]
   :source-paths ["src/main/clojure"]
-  :java-source-paths ["src/main/java"]
+  #_:java-source-paths #_["src/main/java"]
   :javac-options ["-processor" "lombok.launch.AnnotationProcessorHider$AnnotationProcessor"]
   :main net.runelite.rsb.launcher.core)
