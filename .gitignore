@@ -6,3 +6,5 @@ OsrsBot.jar
 target/*
 .clj-kondo/*
 .lsp/*
+
+output/*
